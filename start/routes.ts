@@ -28,21 +28,6 @@ Route.get('/request', async ({ view, request }) => {
   return view.render('welcome', { data: request.toJSON() })
 })
 
-Route.get('/response', async ({ view, response }) => {
-  return view.render('welcome', { data: response })
-})
-
-Route.get('/session', async ({ view, request }) => {
-  return view.render('welcome', {
-    data: {
-      ip: request.headers()['true-client-ip'],
-      platform: request.headers()['sec-ch-ua-platform'],
-      userAgent: request.headers()['user-agent'],
-      country: request.headers()['cf-ipcountry'],
-    },
-  })
-})
-
 Route.get('/ip', async ({ view, request }) => {
   return view.render('welcome', { data: request.ip() })
 })
